@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  smartmei-app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+    - 18000:8000

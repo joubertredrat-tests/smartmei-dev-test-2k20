@@ -1,0 +1,33 @@
+schema {
+  query: Query
+}
+
+"The query type, represents all of the entry points into our object graph"
+type Query {
+  getProfessionalTaxTransfer(Url: String!): ProfessionalTaxTransfer
+}
+
+"Amount repesentation"
+type Amount {
+  "Amount in cents scale"
+  integer: Int!
+  "Amount in decimal"
+  decimal: Float!
+}
+
+"Tax transfer in professional plan in currencies"
+type ProfessionalTaxTransferAmount {
+  "Amount in USA Dollar"
+  usd: Amount!
+  "Amount in Brazil Real"
+  brl: Amount!
+  "Amount in Euro"
+  eur: Amount!
+}
+
+"Tax transfer in professional plan"
+type ProfessionalTaxTransfer {
+  consultDate: String!
+  description: String!
+  amount: ProfessionalTaxTransferAmount!
+}
